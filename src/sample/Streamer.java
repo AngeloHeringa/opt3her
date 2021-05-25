@@ -11,10 +11,21 @@ public class Streamer {
     private String wachtwoord;
     private boolean verifiedId;
     private LocalDate birthDay;
-//    private ArrayList<Video> videos;
+    private ArrayList<Video> videos;
     public static ArrayList<Streamer> streamers = new ArrayList<>();
 
+    public Streamer(String name, Date birthDay) {
+        this.name = name;
+        this.birthDay = LocalDate.of(birthDay.getYear(), birthDay.getMonth(), birthDay.getDay());
+    }
 
+    public void addVideo(String title){
+        this.videos.add(new Video(title));
+    }
+
+    public static ArrayList<Streamer> getStreamers() {
+        return streamers;
+    }
 
     private Streamer(String name, String wachtwoord, LocalDate birthDay, boolean verifiedId) {
         this.name = name;
